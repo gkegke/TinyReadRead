@@ -1,0 +1,24 @@
+# .pre-commit-config.yaml
+repos:
+  # --- PYTHON CHECKS (FastAPI) ---
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.9.0
+    hooks:
+      - id: ruff
+        args: [ --fix ] # Auto-fix typos/imports
+      - id: ruff-format # Replaces Black
+
+  # --- TYPESCRIPT CHECKS (React) ---
+  - repo: https://github.com/biomejs/pre-commit
+    rev: v2.0.0
+    hooks:
+      - id: biome-check
+        args: [] 
+
+  # --- GENERAL CHECKS ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: detect-private-key # Essential for safety!

@@ -1,0 +1,11 @@
+.git
+.github
+**/node_modules
+**/__pycache__
+**/.venv
+**/dist
+**/data
+.pre-commit-config.yaml
+run.sh
+Dockerfile
+docker-compose.yml

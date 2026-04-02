@@ -1,0 +1,24 @@
+services:
+  trr-studio:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: tiny-readread
+    image: gkegke/tiny-readread:latest
+    ports:
+      - "${TRR_PORT:-7777}:7777"
+    volumes:
+      - trr_data:/app/data
+    environment:
+      - STORAGE_DIR=/app/data/audio
+      - HF_HOME=/app/data/hf_cache
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:7777/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  trr_data:
+    driver: local
