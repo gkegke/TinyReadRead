@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import ky from "ky";
 import { useMemo } from "react";
 import { EMPTY_CHUNKS } from "../store/useUIStore";
-import type { Chunk, Project } from "../types/schema";
+import type { Chunk, Project, SystemModel } from "../types/schema";
 
 export const useProjectChunks = (projectId: string | null) => {
 	const query = useQuery({
